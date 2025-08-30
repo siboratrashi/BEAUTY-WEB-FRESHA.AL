@@ -1,0 +1,128 @@
+.hero-bg{
+    background: #FFC0CB, url('images/beautysalon.jpg');
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+.notification{
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    z-index: 1000;
+    transform:  translateY(-100px);
+    transition: transform 0.4s ease-in-out;
+}
+
+.notification.show{
+    transform: translateY(1);
+}
+
+.loading-spinner{
+    border: 3px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    border-top: 3px solid #ffff;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin{
+    0%{transform: rotate(0degree);}
+    100%{transform: rotate(360degree);}
+}
+.time-slot-selected{
+    background-color: rgb(236, 72, 153);
+    color: #ffff;
+}
+.salon-card{
+    transition: transform 0.4 ease;
+}
+.salon-card:hover{
+    transform: translateY(-5px);
+}
+.search-bar{
+    background-color:rgb(236, 72, 153);
+    backdrop-filter: blur(10px);
+}
+ .hero-bg {
+            background-image: url('images/beautysalon.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+            display: none;
+        }
+        
+        .notification.show {
+            display: block;
+        }
+
+        .horizontal-scroll-container {
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+        }
+        
+        .horizontal-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .horizontal-scroll {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+        }
+        
+        .salon-card {
+            flex: 0 0 auto;
+            width: 280px;
+            transition: transform 0.3s ease;
+        }
+        
+        .salon-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 640px) {
+            .salon-card {
+                width: 240px;
+            }
+        }
+        
+
+        .horizontal-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 56.25%; 
+        }
+        
+        .map-container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        } 

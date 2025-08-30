@@ -1,0 +1,42 @@
+
+        .profile-bg {
+            background: linear-gradient(135deg, #ffeef8 0%, #f0f9ff 100%);
+        }
+        .tab-active {
+            color: #ec4899;
+            border-bottom: 2px solid #ec4899;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .notification.success {
+            background-color: #10b981;
+        }
+        .notification.error {
+            background-color: #ef4444;
+        }
+        .booking-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .booking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%);
+        }

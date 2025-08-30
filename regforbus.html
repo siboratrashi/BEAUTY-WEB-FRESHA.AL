@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regjistrimi i Biznesit - Beauty Center Albania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center p-4">   
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <i class="fas fa-cut text-4xl text-pink-500"></i>
+                <h1 class="text-3xl font-bold text-gray-800">Beauty Center</h1>
+            </div>
+            <p class="text-gray-600">Platforma për shërbime bukurie në Shqipëri</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Regjistrohu si Biznes</h2>
+                
+                <form id="businessRegisterForm" onsubmit="handleBusinessRegistration(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Emri i Biznesit</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-building text-gray-400"></i>
+                            </div>
+                            <input type="text" id="businessName" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Emri i Biznesit">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Email i Biznesit</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="businessEmail" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Adresa</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-map-marker-alt text-gray-400"></i>
+                            </div>
+                            <input type="text" id="businessAddress" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Adresa e plotë">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Telefoni</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-phone text-gray-400"></i>
+                            </div>
+                            <input type="tel" id="businessPhone" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="06XXXXXXXX">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Fjalëkalimi</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="businessPassword" required class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="••••••••">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="toggleBusinessPassword()">
+                                <i id="businessPasswordToggle" class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Konfirmo Fjalëkalimin</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="businessConfirmPassword" required class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="••••••••">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="toggleBusinessConfirmPassword()">
+                                <i id="businessConfirmPasswordToggle" class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="businessTerms" required class="h-4 w-4 text-pink-500 focus:ring-pink-500 border-gray-300 rounded">
+                            <label for="businessTerms" class="ml-2 block text-sm text-gray-700">Pajtohem me <a href="#" class="text-pink-500 hover:text-pink-700">kushtet e shërbimit</a></label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-building-plus mr-2"></i> Regjistrohu
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Keni tashmë llogari? <a href="login.html" class="text-pink-500 hover:text-pink-700 font-medium">Hyr këtu</a></p>
+                </div>
+                
+                <div class="mt-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">ose</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button type="button" onclick="socialRegister('google')" class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500 mr-2"></i> Google
+                        </button>
+                        <button type="button" onclick="socialRegister('facebook')" class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                            <i class="fab fa-facebook text-blue-600 mr-2"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+            <p class="text-gray-600">Dëshironi të bëheni klient? <a href="clientregister.html" class="text-pink-500 hover:text-pink-700 font-medium">Regjistrohu këtu</a></p>
+        </div>
+    </div>
+    <div id="notification" class="notification"></div>
+    
+    <script>
+       
+        function initializeBusinessDatabase() {
+            if (!localStorage.getItem('beautyCenterBusinesses')) {
+                localStorage.setItem('beautyCenterBusinesses', JSON.stringify([
+                    { id: 1, email: 'business@example.com', password: 'business123', businessName: 'Biznes Test', address: 'Rruga e Durrësit, Tiranë', phone: '0697654321' }
+                ]));
+            }
+        }
+        
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeBusinessDatabase();
+        });
+        
+        document.getElementById('businessRegisterForm').addEventListener('submit', handleBusinessRegistration);
+        function toggleBusinessPassword() {
+            const passwordInput = document.getElementById('businessPassword');
+            const passwordToggle = document.getElementById('businessPasswordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        }
+        
+       
+        function toggleBusinessConfirmPassword() {
+            const passwordInput = document.getElementById('businessConfirmPassword');
+            const passwordToggle = document.getElementById('businessConfirmPasswordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        }
+        
+   
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+ 
+        function handleBusinessRegistration(event) {
+            event.preventDefault();
+            
+            const businessName = document.getElementById('businessName').value;
+            const email = document.getElementById('businessEmail').value;
+            const address = document.getElementById('businessAddress').value;
+            const phone = document.getElementById('businessPhone').value;
+            const password = document.getElementById('businessPassword').value;
+            const confirmPassword = document.getElementById('businessConfirmPassword').value;
+            
+ 
+            if (password !== confirmPassword) {
+                showNotification('Fjalëkalimet nuk përputhen', 'error');
+                return;
+            }
+        
+            const businesses = JSON.parse(localStorage.getItem('beautyCenterBusinesses') || '[]');
+            
+   
+            if (businesses.some(business => business.email === email)) {
+                showNotification('Ky email tashmë ekziston', 'error');
+                return;
+            }
+            
+    
+            const newBusiness = {
+                id: businesses.length > 0 ? Math.max(...businesses.map(b => b.id)) + 1 : 1,
+                businessName,
+                email,
+                address,
+                phone,
+                password
+            };
+            
+       
+            businesses.push(newBusiness);
+            
+  
+            localStorage.setItem('beautyCenterBusinesses', JSON.stringify(businesses));
+            
+
+            showNotification('Regjistrimi u krye me sukses!');
+            
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        }
+        
+
+        function socialRegister(provider) {
+            showNotification(`Regjistrimi me ${provider} do të implementohet së shpejti`, 'error');
+        }
+    </script>
+</body>
+</html>

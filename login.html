@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyr - Beauty Center Albania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="passwordforget.html">
+    <script src="node.js"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <i class="fas fa-cut text-4xl text-pink-500"></i>
+                <h1 class="text-3xl font-bold text-gray-800">Beauty Center</h1>
+            </div>
+            <p class="text-gray-600">Platforma për shërbime bukurie në Shqipëri</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="flex border-b">
+                <button id="clientTab" class="flex-1 py-4 font-medium text-center tab-active transition" onclick="switchTab('client')">
+                    <i class="fas fa-user mr-2"></i>Klient
+                </button>
+                <button id="businessTab" class="flex-1 py-4 font-medium text-center text-gray-500 hover:text-pink-500 transition" onclick="switchTab('business')">
+                    <i class="fas fa-building mr-2"></i>Biznes
+                </button>
+            </div>
+            
+            <div class="p-8">
+                <!--JAVASCRIPT-->
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <!--PHP-->
+                    <form id="loginForm" action="login.php" method="POST">
+                  <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2" id="emailLabel">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="user@gmail.com">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2" id="passwordLabel">Fjalëkalimi</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="password" required class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="••••••••">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="togglePassword()">
+                                <i id="passwordToggle" class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="remember" class="h-4 w-4 text-pink-500 focus:ring-pink-500 border-gray-300 rounded">
+                            <label for="remember" class="ml-2 block text-sm text-gray-700">Më kujto</label>
+                        </div>
+                        <a href="passwordforget.html" class="text-sm text-pink-500 hover:text-pink-700">Kam harruar fjalëkalimin?</a>
+                    </div>
+                    
+                    <button type="submit" id="loginButton" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        <span id="loginButtonText">Hyr</span>
+                        <div class="spinner ml-2"></div>
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Nuk keni llogari? <br>
+                    <a href="regforbus.html" class="text-pink-500 hover:text-pink-700 font-medium">Regjistrohu si Biznes</a> 
+                    <br>ose<br>
+                    <p class="text-gray-600">Dëshironi të bëheni klient? <br>
+                    <a href="clientregister.html" class="text-pink-500 hover:text-pink-700 font-medium">Regjistrohu si Klient</a>
+                    </p>
+                </div>
+              <div class="mt-6 grid grid-cols-2 gap-4">
+            <a href="https://accounts.google.com/signin" target="_blank" 
+                class="flex items-center justify-center py-2.5 px-4 rounded-lg shadow-md text-sm font-medium text-gray-700 bg-white border border-gray-200 
+                    hover:bg-red-50 hover:border-red-400 hover:text-red-600 transition-all duration-200 ease-in-out transform hover:scale-105">
+            <i class="fab fa-google text-red-500 mr-2"></i> Google
+            </a>
+
+        <a href="https://www.facebook.com/login/" target="_blank" 
+            class="flex items-center justify-center py-2.5 px-4 rounded-lg shadow-md text-sm font-medium text-gray-700 bg-white border border-gray-200 
+                hover:bg-blue-50 hover:border-blue-400 hover:text-blue-600 transition-all duration-200 ease-in-out transform hover:scale-105">
+        <i class="fab fa-facebook text-blue-600 mr-2"></i> Facebook
+        </a>
+    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script>
+        function initializeUserDatabase() {
+            if (!localStorage.getItem('beautyCenterClients')) {
+                localStorage.setItem('beautyCenterClients', JSON.stringify([
+                    { id: 1, email: 'userclient@gmail.com', password: 'client123', name: 'Klient Test', phone: '0691234567' }
+                ]));
+            }
+            
+            if (!localStorage.getItem('beautyCenterBusinesses')) {
+                localStorage.setItem('beautyCenterBusinesses', JSON.stringify([
+                    { id: 1, email: 'userbusiness@gmail.com', password: 'business123', businessName: 'Biznes Test', address: 'Rruga e Durrësit, Tiranë', phone: '0697654321' }
+                ]));
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUserDatabase();
+        });
+        
+        let userType = 'client'; 
+        
+        function switchTab(type) {
+            userType = type;
+            
+            const clientTab = document.getElementById('clientTab');
+            const businessTab = document.getElementById('businessTab');
+            
+            if (type === 'client') {
+                clientTab.classList.add('tab-active');
+                clientTab.classList.remove('text-gray-500');
+                businessTab.classList.remove('tab-active');
+                businessTab.classList.add('text-gray-500');
+                
+                document.getElementById('emailLabel').textContent = 'Email';
+                document.getElementById('passwordLabel').textContent = 'Fjalëkalimi';
+                document.getElementById('loginButtonText').textContent = 'Hyr si Klient';
+            } else {
+                businessTab.classList.add('tab-active');
+                businessTab.classList.remove('text-gray-500');
+                clientTab.classList.remove('tab-active');
+                clientTab.classList.add('text-gray-500');
+                
+                document.getElementById('emailLabel').textContent = 'Email Biznesi';
+                document.getElementById('passwordLabel').textContent = 'Fjalëkalimi Biznesi';
+                document.getElementById('loginButtonText').textContent = 'Hyr si Biznes';
+            }
+        }
+        
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordToggle = document.getElementById('passwordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        }
+        
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            if (!email || !password) {
+                showNotification('Ju lutem plotësoni të gjitha fushat', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showNotification('Ju lutem shkruani një email të vlefshëm', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const loginButton = document.getElementById('loginButton');
+            const loginButtonText = document.getElementById('loginButtonText');
+            loginButton.classList.add('loading');
+            loginButtonText.textContent = 'Duke procesuar...';
+            
+            // Simulate network delay
+            setTimeout(() => {
+                const userDatabase = userType === 'client' 
+                    ? JSON.parse(localStorage.getItem('beautyCenterClients') || '[]')
+                    : JSON.parse(localStorage.getItem('beautyCenterBusinesses') || '[]');
+                
+                const user = userDatabase.find(u => u.email === email);
+                
+                if (!user) {
+                    showNotification('Ky email nuk ekziston në sistem', 'error');
+                    resetLoginButton();
+                    return;
+                }
+                
+                if (user.password !== password) {
+                    showNotification('Fjalëkalimi është i pasaktë', 'error');
+                    resetLoginButton();
+                    return;
+                }
+                
+                const session = {
+                    userId: user.id,
+                    email: user.email,
+                    type: userType,
+                    name: userType === 'client' ? user.name : user.businessName,
+                    timestamp: new Date().toISOString()
+                };
+                
+                if (remember) {
+                    localStorage.setItem('beautyCenterSession', JSON.stringify(session));
+                } else {
+                    sessionStorage.setItem('beautyCenterSession', JSON.stringify(session));
+                }
+                
+                showNotification('Hyrja u krye me sukses!');
+                
+                setTimeout(() => {
+                    if (userType === 'client') {
+                        window.location.href = 'index.html';
+                    } else {
+                        window.location.href = 'business.html';
+                    }
+                }, 1000);
+            }, 800); // Simulate network delay
+        }
+        
+        function resetLoginButton() {
+            const loginButton = document.getElementById('loginButton');
+            const loginButtonText = document.getElementById('loginButtonText');
+            loginButton.classList.remove('loading');
+            loginButtonText.textContent = userType === 'client' ? 'Hyr si Klient' : 'Hyr si Biznes';
+        }
+        
+        function socialLogin(provider) {
+            showNotification(`Hyrja me ${provider} do të implementohet së shpejti`, 'error');
+        }
+        
+        function checkExistingSession() {
+            const session = localStorage.getItem('beautyCenterSession') || 
+                           sessionStorage.getItem('beautyCenterSession');
+            
+            if (session) {
+                try {
+                    const userData = JSON.parse(session);
+                    
+                    const sessionTime = new Date(userData.timestamp);
+                    const currentTime = new Date();
+                    const hoursDiff = (currentTime - sessionTime) / (1000 * 60 * 60);
+                    
+                    if (hoursDiff > 24) {
+                        // Session expired
+                        localStorage.removeItem('beautyCenterSession');
+                        sessionStorage.removeItem('beautyCenterSession');
+                        return;
+                    }
+                    
+                    if (userData.type === 'client') {
+                        document.getElementById('clientTab').classList.add('tab-active');
+                        document.getElementById('businessTab').classList.remove('tab-active');
+                    } else {
+                        document.getElementById('businessTab').classList.add('tab-active');
+                        document.getElementById('clientTab').classList.remove('tab-active');
+                    }
+                    
+                    if (userData.type === 'client') {
+                        window.location.href = 'index.html';
+                    } else {
+                        window.location.href = 'business.html';
+                    }
+                } catch (e) {
+                    // IF invalid session data
+                    localStorage.removeItem('beautyCenterSession');
+                    sessionStorage.removeItem('beautyCenterSession');
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            checkExistingSession();
+        });
+    </script>
+</body>
+</html>

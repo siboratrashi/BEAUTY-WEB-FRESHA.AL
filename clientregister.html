@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regjistrimi i Klientit - Beauty Center Albania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="login-bg min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <i class="fas fa-cut text-4xl text-pink-500"></i>
+                <h1 class="text-3xl font-bold text-gray-800">Beauty Center</h1>
+            </div>
+            <p class="text-gray-600">Platforma për shërbime bukurie në Shqipëri</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Regjistrohu si Klient</h2>
+                <p class="text-gray-600 mb-6">Krijo llogarinë tënde për të rezervuar shërbimet</p>
+                
+                <form id="clientRegisterForm" onsubmit="handleClientRegistration(event)">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Emri</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="clientFirstName" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Emri">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Mbiemri</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="clientLastName" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Mbiemri">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="clientEmail" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Telefoni</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-phone text-gray-400"></i>
+                            </div>
+                            <input type="tel" id="clientPhone" required class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="06XXXXXXXX">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Datëlindja (Opsionale)</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-calendar text-gray-400"></i>
+                            </div>
+                            <input type="date" id="clientBirthday" class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Gjinia (Opsionale)</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center">
+                                <input type="radio" name="gender" value="female" class="h-4 w-4 text-pink-500 focus:ring-pink-500 border-gray-300">
+                                <span class="ml-2 text-gray-700">Femër</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="gender" value="male" class="h-4 w-4 text-pink-500 focus:ring-pink-500 border-gray-300">
+                                <span class="ml-2 text-gray-700">Mashkull</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Fjalëkalimi</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="clientPassword" required class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="••••••••">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="toggleClientPassword()">
+                                <i id="clientPasswordToggle" class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Konfirmo Fjalëkalimin</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="clientConfirmPassword" required class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="••••••••">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" onclick="toggleClientConfirmPassword()">
+                                <i id="clientConfirmPasswordToggle" class="fas fa-eye text-gray-400 hover:text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="clientTerms" required class="h-4 w-4 text-pink-500 focus:ring-pink-500 border-gray-300 rounded">
+                            <label for="clientTerms" class="ml-2 block text-sm text-gray-700">Pajtohem me <a href="#" class="text-pink-500 hover:text-pink-700">kushtet e shërbimit</a></label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-user-plus mr-2"></i> Regjistrohu
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Keni tashmë llogari? <a href="login.html" class="text-pink-500 hover:text-pink-700 font-medium">Hyr këtu</a></p>
+                </div>
+                
+                <div class="mt-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">ose</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button type="button" onclick="socialRegister('google')" class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500 mr-2"></i> Google
+                        </button>
+                        <button type="button" onclick="socialRegister('facebook')" class="flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                            <i class="fab fa-facebook text-blue-600 mr-2"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+            <p class="text-gray-600">Jeni pronar biznesi? <a href="businessregister.html" class="text-pink-500 hover:text-pink-700 font-medium">Regjistroni biznesin tuaj</a></p>
+        </div>
+    </div>
+    
+    <div id="notification" class="notification"></div>
+    
+    <script>
+        
+        function initializeUserDatabase() {
+            if (!localStorage.getItem('beautyCenterClients')) {
+                localStorage.setItem('beautyCenterClients', JSON.stringify([
+                    { id: 1, email: 'client@example.com', password: 'client123', firstName: 'Klient', lastName: 'Test', phone: '0691234567' }
+                ]));
+            }
+        }
+        
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUserDatabase();
+        });
+        
+        document.getElementById('clientRegisterForm').addEventListener('submit', handleClientRegistration);
+        function toggleClientPassword() {
+            const passwordInput = document.getElementById('clientPassword');
+            const passwordToggle = document.getElementById('clientPasswordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        }
+        
+        
+        function toggleClientConfirmPassword() {
+            const passwordInput = document.getElementById('clientConfirmPassword');
+            const passwordToggle = document.getElementById('clientConfirmPasswordToggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        }
+        
+   
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        function handleClientRegistration(event) {
+            event.preventDefault();
+            
+            const firstName = document.getElementById('clientFirstName').value;
+            const lastName = document.getElementById('clientLastName').value;
+            const email = document.getElementById('clientEmail').value;
+            const phone = document.getElementById('clientPhone').value;
+            const birthday = document.getElementById('clientBirthday').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || '';
+            const password = document.getElementById('clientPassword').value;
+            const confirmPassword = document.getElementById('clientConfirmPassword').value;
+            
+
+            if (password !== confirmPassword) {
+                showNotification('Fjalëkalimet nuk përputhen', 'error');
+                return;
+            }
+            
+  
+            const clients = JSON.parse(localStorage.getItem('beautyCenterClients') || '[]');
+            
+ 
+            if (clients.some(client => client.email === email)) {
+                showNotification('Ky email tashmë ekziston', 'error');
+                return;
+            }
+            if (clients.some(client => client.phone === phone)) {
+                showNotification('Ky numër telefoni tashmë ekziston', 'error');
+                return;
+            }
+            const newClient = {
+                id: clients.length > 0 ? Math.max(...clients.map(c => c.id)) + 1 : 1,
+                firstName,
+                lastName,
+                email,
+                phone,
+                birthday,
+                gender,
+                password
+            };
+            
+        
+            clients.push(newClient);
+            
+          
+            localStorage.setItem('beautyCenterClients', JSON.stringify(clients));
+           
+            showNotification('Regjistrimi u krye me sukses!');
+            
+          
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        }
+        
+
+        function socialRegister(provider) {
+            showNotification(`Regjistrimi me ${provider} do të implementohet së shpejti`, 'error');
+        }
+    </script>
+</body>
+</html>

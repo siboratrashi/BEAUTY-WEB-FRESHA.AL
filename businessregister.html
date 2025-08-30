@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyPro Albania - Platforma #1 për Salone dhe Spa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="businessregister.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-cut text-3xl text-pink-500"></i>
+                <h1 class="text-2xl font-bold">BeautyPro AL</h1>
+            </div>
+            
+             <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="font-medium hover:text-pink-500 transition">
+                    <i class="fa-solid fa-house"></i>
+                     <span data-i18n="nav.home">Faqa Kryesore</span>
+                  </a>
+                </div>
+                <div>
+                <a href="login.html" class="font-medium hover:text-pink-500 transition">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span data-i18n="nav.register">Regjistrohu</span>
+                </a>
+                </div>
+                <div>
+                    <a href="profil.html" class="font-medium hover:text-pink-500 transition">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span data-i18n="nav.profile">Profili</span>
+                    </a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <button onclick="toggleLanguage()" class="text-gray-700 hover:text-pink-500">
+                    <i class="fas fa-globe"></i>
+                    <span id="langBtn">EN</span>
+                </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-3">
+                <button class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition mt-2" data-i18n="nav.register">Regjistrohu</button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" data-i18n="hero.title"> Sallone dhe Spa në Shqipëri</h1>
+                <p class="text-lg mb-8" data-i18n="hero.description">Software i thjeshtë, fleksibël dhe i dobishëm për rezervime për biznesin tuaj.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="freshabusinesspro.html" class="bg-pink-500 text-white px-8 py-3 rounded-full font-medium hover:bg-pink-600 transition inline-block text-center" data-i18n="hero.button">Fillo tani</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="images/beautysalon.jpg" alt="Software në desktop" class="rounded-lg shadow-xl float-animation" data-i18n-alt="img.desktop">
+                    <img src="images/phone.jpg" alt="Software në celular" class="absolute -bottom-10 -right-10 w-1/3 rounded-lg shadow-xl" data-i18n-alt="img.mobile">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-card text-center">
+                    <div class="text-4xl font-bold text-pink-500 mb-2">4.8</div>
+                    <div class="text-gray-600" data-i18n="stats.rating">Vlerësim mesatar</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-4xl font-bold text-pink-500 mb-2">5,000+</div>
+                    <div class="text-gray-600" data-i18n="stats.partners">Biznese partner</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-4xl font-bold text-pink-500 mb-2">15,000+</div>
+                    <div class="text-gray-600" data-i18n="stats.professionals">Profesionistë</div>
+                </div>
+                <div class="stat-card text-center">
+                    <div class="text-4xl font-bold text-pink-500 mb-2">2 Milion+</div>
+                    <div class="text-gray-600" data-i18n="stats.appointments">Takime të rezervuara</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Business Types Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="business.title">Një platformë me mundësi të pafundme</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="business.description">Gjithçka që ju nevojitet për të lulëzuar. BeautyPro AL është i pajisur me mjete për të rritur shitjet, menaxhuar kalendarin dhe mbajtur klientët.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/hairbeauty1.jpg" alt="Salon flokësh" class="w-full h-40 object-cover" data-i18n-alt="business.hair">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.hairTitle">Salon Bukurie</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.hairDesc">Për të gjitha shërbimet e kujdesit të flokëve</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/hairbarber.jpg" alt="Barber" class="w-full h-40 object-cover" data-i18n-alt="business.barber">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.barberTitle">Barber</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.barberDesc">Shërbime të stilit për burra</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/nail.jpg" alt="Thonj" class="w-full h-40 object-cover" data-i18n-alt="business.nails">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.nailsTitle">Thonj</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.nailsDesc">Shërbime manikiuri dhe pedikiuri</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/spaandsauna.jpg" alt="Spa" class="w-full h-40 object-cover" data-i18n-alt="business.spa">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.spaTitle">Spa dhe Sauna</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.spaDesc">Relaksim dhe trajtime të shëndetshme</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/medspa.jpg" alt="MedSpa" class="w-full h-40 object-cover" data-i18n-alt="business.medspa">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.medspaTitle">MedSpa</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.medspaDesc">Trajtime estetike profesionale</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/masazh.jpg" alt="Masazh" class="w-full h-40 object-cover" data-i18n-alt="business.massage">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.massageTitle">Masazh</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.massageDesc">Terapi relaksimi dhe shërimi</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/physiotherapy.jpg" alt="Fitness" class="w-full h-40 object-cover" data-i18n-alt="business.physio">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.physioTitle">Fizioterapi</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.physioDesc">Shërbime fizioterapi rikuperimi</p>
+                    </div>
+                </div>
+                
+                <div class="business-type-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="images/aristm.jpg" alt="Tatuazh" class="w-full h-40 object-cover" data-i18n-alt="business.makeup">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2" data-i18n="business.makeupTitle">Makeup</h3>
+                        <p class="text-gray-600 text-sm" data-i18n="business.makeupDesc">Makeup artist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="features.title">Gjithçka që ju nevojitet për të menaxhuar biznesin tuaj</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="features.description">BeautyPro AL ofron veçori inovative që sjellin mundësi, efikasitet dhe  përvojë përmirësimi për anëtarët e ekipit tuaj dhe klientët.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="feature-icon text-5xl text-pink-500 mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="features.manage">Menaxho</h3>
+                    <p class="text-gray-600" data-i18n="features.manageDesc">Menaxho rezervimet, shitjet, klientët, vendndodhjet, anëtarët e ekipit. Analizo biznesin tuaj me raportime dhe analiza të avancuara.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon text-5xl text-pink-500 mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="features.grow">Rritu</h3>
+                    <p class="text-gray-600" data-i18n="features.growDesc">Fitoni klientë të rinj me anë të marketingut në tregun e bukurisë në Shqipëri.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon text-5xl text-pink-500 mb-4">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="features.pay">Merr Pagesa</h3>
+                    <p class="text-gray-600" data-i18n="features.payDesc">Merrni pagesa shpejt; zvogëloni mungesat me pagesa paraprake dhe thjeshtoni checkout-in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="testimonials.title">Vlerësuar më së miri nga industria</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="testimonials.description">Të qenit platforma më e dashur në botë nuk ndodh rastësisht. Përkushtimi ynë për të ndërtuar software-in më të mirë të rezervimeve dhe për të dhënë një përvojë të jashtëzakonshme për klientët vazhdon të njihet në industrisë herë pas here.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/anita.jpg" alt="Anita K." class="w-12 h-12 rounded-full mr-4" data-i18n-alt="testimonials.anita">
+                        <div>
+                            <h4 class="font-bold">Anita K.</h4>
+                            <p class="text-gray-600 text-sm" data-i18n="testimonials.anitaRole">Themeluese e "Elegance"</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700" data-i18n="testimonials.anitaQuote">"BeautyPro AL është aq i thjeshtë për të menaxhuar ekipin tim. Përvojna e rezervimit online është profesionale dhe ka ndihmuar biznesin tim të rritet me 40% në 6 muaj!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/32bled.jpg" alt="Bledar M." class="w-12 h-12 rounded-full mr-4" data-i18n-alt="testimonials.bledar">
+                        <div>
+                            <h4 class="font-bold">Bledar M.</h4>
+                            <p class="text-gray-600 text-sm" data-i18n="testimonials.bledarRole">Pronar i "Barber Shop Elite"</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700" data-i18n="testimonials.bledarQuote">"Klientët e mi e duan! Platforma e rezervimeve është shumë e lehtë për t'u përdorur dhe sistemi i pagesave është i shpejtë dhe i sigurt."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/elsadd.jpg" alt="Elsa D." class="w-12 h-12 rounded-full mr-4" data-i18n-alt="testimonials.elsa">
+                        <div>
+                            <h4 class="font-bold">Elsa D.</h4>
+                            <p class="text-gray-600 text-sm" data-i18n="testimonials.elsaRole">Mjekësuese e "Spa Relax"</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700" data-i18n="testimonials.elsaQuote">"Software-i i planifikimit është shumë miqësor me përdoruesin dhe është falas! Kam 3 vendndodhje biznesi dhe BeautyPro AL i plotëson të gjitha nevojat e mija. Është një produkt fantastik!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Growth Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="growth.title">Zotëro biznesin tënd</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="growth.description">Në BeautyPro AL, ne duam t'ju ndihmojmë të rritni biznesin tuaj, të tërhiqni klientë të rinj dhe të rritni shitjet. Shihni si po bëhen bizneset në BeautyPro AL</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-pink-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl font-bold text-pink-500 mb-2">26%</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="growth.clients">Më shumë klientë</h3>
+                    <p class="text-gray-600" data-i18n="growth.clientsDesc">Fitoni klientë të rinj dhe mbajini që të kthehen në tregun më të madh të bukurisë në Shqipëri.</p>
+                </div>
+                
+                <div class="bg-blue-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl font-bold text-blue-500 mb-2">89%</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="growth.noshow">Më pak mungesa</h3>
+                    <p class="text-gray-600" data-i18n="growth.noshowDesc">Zvogëloni mungesat dhe anullimet duke marrë një depozitë ose pagesë të plotë paraprakisht.</p>
+                </div>
+                
+                <div class="bg-green-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl font-bold text-green-500 mb-2">20%</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="growth.sales">Më shumë shitje</h3>
+                    <p class="text-gray-600" data-i18n="growth.salesDesc">Gjeneroni më shumë shitje duke shitur shërbime shtesë kur klientët rezervojnë online.</p>
+                </div>
+                
+                <div class="bg-purple-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl font-bold text-purple-500 mb-2">290%</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="growth.tips">Më shumë bakshishe</h3>
+                    <p class="text-gray-600" data-i18n="growth.tipsDesc">Mblidhni më shumë bakshishe nga rezervimet online.</p>
+                </div>
+                
+                <div class="bg-yellow-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl font-bold text-yellow-500 mb-2">12%</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="growth.retention">Rritje e mbajtjes</h3>
+                    <p class="text-gray-600" data-i18n="growth.retentionDesc">Partnerët që përdorin BeautyPro AL përjetojnë një mbajtje më të lartë të klientëve.</p>
+                </div>
+                
+                <div class="bg-red-50 rounded-lg p-6 text-center">
+                    <div class="text-4xl font-bold text-red-500 mb-2">392%</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="growth.roi">Rikthim i investimit</h3>
+                    <p class="text-gray-600" data-i18n="growth.roiDesc">Shumica e partnerëve rriten me BeautyPro AL.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Support Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4" data-i18n="support.title">I përkushtuar ndaj suksesit tuaj</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="support.description">Çdo biznes ka nevojat e veta, dhe ne e kemi mbuluar me një gamë të gjerë shërbimesh profesionale</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-4xl text-pink-500 mb-4">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="support.manager">Menaxher i suksesit të klientit</h3>
+                    <p class="text-gray-600" data-i18n="support.managerDesc">Merrni ndihmë të dedikuar për të maksimizuar potencialin tuaj në BeautyPro AL</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-4xl text-pink-500 mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="support.network">Hyrja në rrjetin tonë</h3>
+                    <p class="text-gray-600" data-i18n="support.networkDesc">Përdorni një menaxher llogarie të certifikuar për Enterprise për të sjellë biznesin tuaj në jetë</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-4xl text-pink-500 mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="support.priority">Mbështetje prioritare 24/7</h3>
+                    <p class="text-gray-600" data-i18n="support.priorityDesc">Flisni me ekipin tonë të kujdesit për klientë në çdo kohë. Ne jemi këtu për të ndihmuar.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-4xl text-pink-500 mb-4">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="support.migration">Mbështetje për migrim</h3>
+                    <p class="text-gray-600" data-i18n="support.migrationDesc">Ekipi ynë mund t'ju ndihmojë të sjellni të dhënat tuaja nga platforma të tjera</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-4xl text-pink-500 mb-4">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="support.custom">Zgjidhje të personalizuara</h3>
+                    <p class="text-gray-600" data-i18n="support.customDesc">Keni diçka në mendje? Thjesht na pytni. Do ta gjejmë së bashku.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-4xl text-pink-500 mb-4">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="support.expert">Konsultim ekspertësh</h3>
+                    <p class="text-gray-600" data-i18n="support.expertDesc">Merrni akses të drejtpërdrejtë te ekspertët e produkteve për udhëzime në të gjitha çështjet e BeautyPro AL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+   <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12" data-i18n="faq.title">Pyetje të bëra shpesh</h2>
+        
+        <div class="max-w-3xl mx-auto">
+            <!-- Pyetja 1 -->
+            <div class="mb-6">
+                <button class="faq-button flex justify-between items-center w-full p-4 bg-gray-100 rounded-lg text-left font-medium hover:bg-gray-200 transition">
+                    <span data-i18n="faq.q1">Çfarë e bën BeautyPro AL platformën kryesore për bizneset në bukuri dhe wellness?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer hidden p-4 bg-gray-50 rounded-b-lg" data-i18n="faq.a1">
+                    BeautyPro AL ofron produkte të cilësisë së lartë, trajnime profesionale dhe mbështetje për zhvillimin e stafit, duke i mundësuar bizneseve të rriten dhe të diferencohen në tregun e bukurisë dhe wellness-it.
+                </div>
+            </div>
+            <!-- Pyetja 2 -->
+            <div class="mb-6">
+                <button class="faq-button flex justify-between items-center w-full p-4 bg-gray-100 rounded-lg text-left font-medium hover:bg-gray-200 transition">
+                    <span data-i18n="faq.q2">Si mund të ndihmojë BeautyPro AL në rritjen e biznesit tim?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer hidden p-4 bg-gray-50 rounded-b-lg" data-i18n="faq.a2">
+                    Platforma ofron akses në produktet më të fundit dhe trendet në bukuri dhe wellness, ofron trajnime për staf, dhe këshilla profesionale për marketing dhe menaxhim, duke ndihmuar biznesin të tërheqë më shumë klientë dhe të rrisë fitimin.
+                </div>
+            </div>
+            <!-- Pyetja 3 -->
+            <div class="mb-6">
+                <button class="faq-button flex justify-between items-center w-full p-4 bg-gray-100 rounded-lg text-left font-medium hover:bg-gray-200 transition">
+                    <span data-i18n="faq.q3">A ka ndonjë kosto specifike?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer hidden p-4 bg-gray-50 rounded-b-lg" data-i18n="faq.a3">
+                    Nuk ka një kosto të detyrueshme për t’u regjistruar. Disa shërbime premium ose trajtime mund të kenë pagesa shtesë, të cilat tregohen qartë para përdorimit.
+                </div>
+            </div>
+            <!-- Pyetja 4 -->
+            <div class="mb-6">
+                <button class="faq-button flex justify-between items-center w-full p-4 bg-gray-100 rounded-lg text-left font-medium hover:bg-gray-200 transition">
+                    <span data-i18n="faq.q4">A ka ndonjë angazhim minimal ose kontratë?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer hidden p-4 bg-gray-50 rounded-b-lg" data-i18n="faq.a4">
+                  Kontratat afatgjata nuk janë të detyrueshme. Bizneset mund të përdorin platformën sipas nevojës dhe të zgjedhin shërbimet që u përshtaten më mirë.
+                </div>
+            </div>
+            <!-- Pyetja 5 -->
+            <div class="mb-6">
+                <button class="faq-button flex justify-between items-center w-full p-4 bg-gray-100 rounded-lg text-left font-medium hover:bg-gray-200 transition">
+                    <span data-i18n="faq.q5">A mbështet BeautyPro AL bizneset të të gjitha madhësive?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer hidden p-4 bg-gray-50 rounded-b-lg" data-i18n="faq.a5">
+                    Platforma është e përshtatshme për biznese të vogla, të mesme dhe të mëdha. Ajo ofron mjetet dhe resurset që çdo lloj biznesi mund t'i përdorë për të rritur cilësinë dhe tërheqjen e klientëve.
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+    <!--Regjistro Biznesin-->
+     <section id="register-form" class="py-16 bg-pink-50">
+    <div class="container mx-auto px-4">
+        <div class="text-xl font-semibold text-center mb-4" data-i18n="register.title">
+            Regjistro biznesin tuaj
+        </div>
+        <p class="text-center text-gray-600 mb-8 text-base" data-i18n="register.subtitle">
+            Bëhu pjesë e platformës më të madhe të bukurisë dhe wellness-it në Shqipëri
+        </p>
+            <!--Javascript-->
+        <form onsubmit="handleBusinessRegistration(event)">
+            <!--PHP-->
+             <form action="register.php" method="POST">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="businessName" data-i18n="register.businessName">Emri i Biznesit</label>
+                    <input type="text" id="businessName"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="businessType" data-i18n="register.businessType">Lloji i Biznesit</label>
+                    <select id="businessType"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                        <option value="" data-i18n="register.selectType">Zgjidh llojin</option>
+                        <option value="salon" data-i18n="register.salon">Salon Bukurie</option>
+                        <option value="barber" data-i18n="register.barber">Barber</option>
+                        <option value="nails" data-i18n="register.nails">Thonj</option>
+                        <option value="spa" data-i18n="register.spa">Spa dhe Sauna</option>
+                        <option value="medspa" data-i18n="register.medspa">MedSpa</option>
+                        <option value="massage" data-i18n="register.massage">Masazh</option>
+                        <option value="physio" data-i18n="register.physio">Fizioterapi</option>
+                        <option value="makeup" data-i18n="register.makeup">Makeup</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="ownerName" data-i18n="register.ownerName">Emri i Pronarit</label>
+                    <input type="text" id="ownerName"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="ownerEmail" data-i18n="register.email">Email</label>
+                    <input type="email" id="ownerEmail"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="phone" data-i18n="register.phone">Numri i Telefonit</label>
+                    <input type="tel" id="phone"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="city" data-i18n="register.city">Qyteti</label>
+                    <input type="text" id="city"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-gray-700 mb-2 text-sm" for="address" data-i18n="register.address">Adresa</label>
+                    <input type="text" id="address"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="password" data-i18n="register.password">Fjalëkalimi</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2 text-sm" for="confirmPassword" data-i18n="register.confirmPassword">Konfirmo Fjalëkalimin</label>
+                    <input type="password" id="confirmPassword"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                        required>
+                </div>
+            </div>
+            <!-- WhatsApp and Messenger Floating Button -->
+            <a href="https://wa.me/355691234567" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition z-40">
+                <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
+            </a>
+            <a href="https://m.me/yourusername" target="_blank" 
+                class="fixed bottom-20 md:bottom-24 right-6 bg-purple-600 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition z-40">
+            <i class="fab fa-facebook-messenger text-xl md:text-2xl"></i>
+            </a>
+<!--Javascript-->
+    <script>
+  function handleRegistration(event) {
+    event.preventDefault();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword) {
+      alert("Fjalëkalimi dhe konfirmimi nuk përputhen.");
+      return;
+    }
+    const data = {
+      biznesi: document.getElementById("businessName").value,
+      lloji: document.getElementById("businessType").value,
+      pronari: document.getElementById("ownerName").value,
+      email: document.getElementById("email").value,
+      telefoni: document.getElementById("phone").value,
+      qyteti: document.getElementById("city").value,
+      adresa: document.getElementById("address").value
+    };
+    
+    alert(` Biznesi u regjistrua me sukses!\n\n Emri: ${data.biznesi}\n Lloji: ${data.lloji}\n Pronari: ${data.pronari}\n Qyteti: ${data.qyteti}`);
+  }
+</script>
+
+            <div class="mt-6">
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms" class="mr-2" required>
+                    <label for="terms" class="text-gray-700 text-sm" data-i18n="register.terms">I pranoj
+                        <a href="#" class="text-pink-500 hover:underline" data-i18n="register.termsService">kushtet e shërbimit</a>
+                        dhe
+                        <a href="#" class="text-pink-500 hover:underline" data-i18n="register.privacy">politikat e privatësisë</a>
+                    </label>
+                     </div>
+                    <div class="mt-8">
+                    <button type="submit"
+                    class="w-40 bg-pink-500 text-white py-3 rounded-lg font-medium text-sm hover:bg-pink-600 transition" data-i18n="register.submit">
+                    Regjistrohuni
+                    </button>
+            </div>
+            </div>
+           </form>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 bg-pink-200 text-beige mt-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4" data-i18n="cta.title">Çfarë po prisni?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto" data-i18n="cta.description">Bëhu partner me BeautyPro AL dhe fillo të rritësh biznesin tuaj sot</p>
+        <a href="freshabusinesspro.html"
+           class="bg-white text-beige-200 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition" data-i18n="cta.button">
+           Fillo tani
+        </a>
+    </div>
+</section>
+<br>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-cut text-3xl text-pink-500"></i>
+                        <h3 class="text-2xl font-bold">BeautyPro AL</h3>
+                    </div>
+                    <p class="text-gray-400" data-i18n="footer.description">Platforma #1 për bizneset e bukurisë dhe wellness-it në Shqipëri</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.platform">Platforma</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.download">Shkarko aplikacionin</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.about">Rreth nesh</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.careers">Karriera</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.business">Për biznesin</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.partners">Për partnerët</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.pricing">Çmimet</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.support">Mbështetje</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.status">Statusi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.legal">Ligjore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.privacy">Politika e privatësisë</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.terms">Kushtet e shërbimit</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.usage">Kushtet e përdorimit</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition" data-i18n="footer.help">Ndihmë dhe mbështetje</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400" data-i18n="footer.copyright">&copy; 2024 BeautyPro AL. Të gjitha të drejtat e rezervuara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            sq: {
+                // Navigation
+                "nav.home": "Faqa Kryesore",
+                "nav.register": "Regjistrohu",
+                "nav.profile": "Profili",
+                
+                // Hero Section
+                "hero.title": "Sallone dhe Spa në Shqipëri",
+                "hero.description": "Software i thjeshtë, fleksibël dhe i dobishëm për rezervime për biznesin tuaj.",
+                "hero.button": "Fillo tani",
+                "img.desktop": "Software në desktop",
+                "img.mobile": "Software në celular",
+                
+                // Stats Section
+                "stats.rating": "Vlerësim mesatar",
+                "stats.partners": "Biznese partner",
+                "stats.professionals": "Profesionistë",
+                "stats.appointments": "Takime të rezervuara",
+                
+                // Business Types Section
+                "business.title": "Një platformë me mundësi të pafundme",
+                "business.description": "Gjithçka që ju nevojitet për të lulëzuar. BeautyPro AL është i pajisur me mjete për të rritur shitjet, menaxhuar kalendarin dhe mbajtur klientët.",
+                "business.hair": "Salon flokësh",
+                "business.hairTitle": "Salon Bukurie",
+                "business.hairDesc": "Për të gjitha shërbimet e kujdesit të flokëve",
+                "business.barber": "Barber",
+                "business.barberTitle": "Barber",
+                "business.barberDesc": "Shërbime të stilit për burra",
+                "business.nails": "Thonj",
+                "business.nailsTitle": "Thonj",
+                "business.nailsDesc": "Shërbime manikiuri dhe pedikiuri",
+                "business.spa": "Spa",
+                "business.spaTitle": "Spa dhe Sauna",
+                "business.spaDesc": "Relaksim dhe trajtime të shëndetshme",
+                "business.medspa": "MedSpa",
+                "business.medspaTitle": "MedSpa",
+                "business.medspaDesc": "Trajtime estetike profesionale",
+                "business.massage": "Masazh",
+                "business.massageTitle": "Masazh",
+                "business.massageDesc": "Terapi relaksimi dhe shërimi",
+                "business.physio": "Fitness",
+                "business.physioTitle": "Fizioterapi",
+                "business.physioDesc": "Shërbime fizioterapi rikuperimi",
+                "business.makeup": "Tatuazh",
+                "business.makeupTitle": "Makeup",
+                "business.makeupDesc": "Makeup artist",
+                
+                // Features Section
+                "features.title": "Gjithçka që ju nevojitet për të menaxhuar biznesin tuaj",
+                "features.description": "BeautyPro AL ofron veçori inovative që sjellin mundësi, efikasitet dhe përvojë përmirësimi për anëtarët e ekipit tuaj dhe klientët.",
+                "features.manage": "Menaxho",
+                "features.manageDesc": "Menaxho rezervimet, shitjet, klientët, vendndodhjet, anëtarët e ekipit. Analizo biznesin tuaj me raportime dhe analiza të avancuara.",
+                "features.grow": "Rritu",
+                "features.growDesc": "Fitoni klientë të rinj me anë të marketingut në tregun e bukurisë në Shqipëri.",
+                "features.pay": "Merr Pagesa",
+                "features.payDesc": "Merrni pagesa shpejt; zvogëloni mungesat me pagesa paraprake dhe thjeshtoni checkout-in.",
+                
+                // Testimonials Section
+                "testimonials.title": "Vlerësuar më së miri nga industria",
+                "testimonials.description": "Të qenit platforma më e dashur në botë nuk ndodh rastësisht. Përkushtimi ynë për të ndërtuar software-in më të mirë të rezervimeve dhe për të dhënë një përvojë të jashtëzakonshme për klientët vazhdon të njihet në industrisë herë pas here.",
+                "testimonials.anita": "Anita K.",
+                "testimonials.anitaRole": "Themeluese e \"Elegance\"",
+                "testimonials.anitaQuote": "\"BeautyPro AL është aq i thjeshtë për të menaxhuar ekipin tim. Përvojna e rezervimit online është profesionale dhe ka ndihmuar biznesin tim të rritet me 40% në 6 muaj!\"",
+                "testimonials.bledar": "Bledar M.",
+                "testimonials.bledarRole": "Pronar i \"Barber Shop Elite\"",
+                "testimonials.bledarQuote": "\"Klientët e mi e duan! Platforma e rezervimeve është shumë e lehtë për t'u përdorur dhe sistemi i pagesave është i shpejtë dhe i sigurt.\"",
+                "testimonials.elsa": "Elsa D.",
+                "testimonials.elsaRole": "Mjekësuese e \"Spa Relax\"",
+                "testimonials.elsaQuote": "\"Software-i i planifikimit është shumë miqësor me përdoruesin dhe është falas! Kam 3 vendndodhje biznesi dhe BeautyPro AL i plotëson të gjitha nevojat e mija. Është një produkt fantastik!\"",
+                
+                // Growth Stats Section
+                "growth.title": "Zotëro biznesin tënd",
+                "growth.description": "Në BeautyPro AL, ne duam t'ju ndihmojmë të rritni biznesin tuaj, të tërhiqni klientë të rinj dhe të rritni shitjet. Shihni si po bëhen bizneset në BeautyPro AL",
+                "growth.clients": "Më shumë klientë",
+                "growth.clientsDesc": "Fitoni klientë të rinj dhe mbajini që të kthehen në tregun më të madh të bukurisë në Shqipëri.",
+                "growth.noshow": "Më pak mungesa",
+                "growth.noshowDesc": "Zvogëloni mungesat dhe anullimet duke marrë një depozitë ose pagesë të plotë paraprakisht.",
+                "growth.sales": "Më shumë shitje",
+                "growth.salesDesc": "Gjeneroni më shumë shitje duke shitur shërbime shtesë kur klientët rezervojnë online.",
+                "growth.tips": "Më shumë bakshishe",
+                "growth.tipsDesc": "Mblidhni më shumë bakshishe nga rezervimet online.",
+                "growth.retention": "Rritje e mbajtjes",
+                "growth.retentionDesc": "Partnerët që përdorin BeautyPro AL përjetojnë një mbajtje më të lartë të klientëve.",
+                "growth.roi": "Rikthim i investimit",
+                "growth.roiDesc": "Shumica e partnerëve rriten me BeautyPro AL.",
+                
+                // Support Section
+                "support.title": "I përkushtuar ndaj suksesit tuaj",
+                "support.description": "Çdo biznes ka nevojat e veta, dhe ne e kemi mbuluar me një gamë të gjerë shërbimesh profesionale",
+                "support.manager": "Menaxher i suksesit të klientit",
+                "support.managerDesc": "Merrni ndihmë të dedikuar për të maksimizuar potencialin tuaj në BeautyPro AL",
+                "support.network": "Hyrja në rrjetin tonë",
+                "support.networkDesc": "Përdorni një menaxher llogarie të certifikuar për Enterprise për të sjellë biznesin tuaj në jetë",
+                "support.priority": "Mbështetje prioritare 24/7",
+                "support.priorityDesc": "Flisni me ekipin tonë të kujdesit për klientë në çdo kohë. Ne jemi këtu për të ndihmuar.",
+                "support.migration": "Mbështetje për migrim",
+                "support.migrationDesc": "Ekipi ynë mund t'ju ndihmojë të sjellni të dhënat tuaja nga platforma të tjera",
+                "support.custom": "Zgjidhje të personalizuara",
+                "support.customDesc": "Keni diçka në mendje? Thjesht na pytni. Do ta gjejmë së bashku.",
+                "support.expert": "Konsultim ekspertësh",
+                "support.expertDesc": "Merrni akses të drejtpërdrejtë te ekspertët e produkteve për udhëzime në të gjitha çështjet e BeautyPro AL",
+                
+                // FAQ Section
+                "faq.title": "Pyetje të bëra shpesh",
+                "faq.q1": "Çfarë e bën BeautyPro AL platformën kryesore për bizneset në bukuri dhe wellness?",
+                "faq.a1": "BeautyPro AL ofron produkte të cilësisë së lartë, trajnime profesionale dhe mbështetje për zhvillimin e stafit, duke i mundësuar bizneseve të rriten dhe të diferencohen në tregun e bukurisë dhe wellness-it.",
+                "faq.q2": "Si mund të ndihmojë BeautyPro AL në rritjen e biznesit tim?",
+                "faq.a2": "Platforma ofron akses në produktet më të fundit dhe trendet në bukuri dhe wellness, ofron trajnime për staf, dhe këshilla profesionale për marketing dhe menaxhim, duke ndihmuar biznesin të tërheqë më shumë klientë dhe të rrisë fitimin.",
+                "faq.q3": "A ka ndonjë kosto specifike?",
+                "faq.a3": "Nuk ka një kosto të detyrueshme për t'u regjistruar. Disa shërbime premium ose trajtime mund të kenë pagesa shtesë, të cilat tregohen qartë para përdorimit.",
+                "faq.q4": "A ka ndonjë angazhim minimal ose kontratë?",
+                "faq.a4": "Kontratat afatgjata nuk janë të detyrueshme. Bizneset mund të përdorin platformën sipas nevojës dhe të zgjedhin shërbimet që u përshtaten më mirë.",
+                "faq.q5": "A mbështet BeautyPro AL bizneset të të gjitha madhësive?",
+                "faq.a5": "Platforma është e përshtatshme për biznese të vogla, të mesme dhe të mëdha. Ajo ofron mjetet dhe resurset që çdo lloj biznesi mund t'i përdorë për të rritur cilësinë dhe tërheqjen e klientëve.",
+                
+                // Registration Form
+                "register.title": "Regjistro biznesin tuaj",
+                "register.subtitle": "Bëhu pjesë e platformës më të madhe të bukurisë dhe wellness-it në Shqipëri",
+                "register.businessName": "Emri i Biznesit",
+                "register.businessType": "Lloji i Biznesit",
+                "register.selectType": "Zgjidh llojin",
+                "register.salon": "Salon Bukurie",
+                "register.barber": "Barber",
+                "register.nails": "Thonj",
+                "register.spa": "Spa dhe Sauna",
+                "register.medspa": "MedSpa",
+                "register.massage": "Masazh",
+                "register.physio": "Fizioterapi",
+                "register.makeup": "Makeup",
+                "register.ownerName": "Emri i Pronarit",
+                "register.email": "Email",
+                "register.phone": "Numri i Telefonit",
+                "register.city": "Qyteti",
+                "register.address": "Adresa",
+                "register.password": "Fjalëkalimi",
+                "register.confirmPassword": "Konfirmo Fjalëkalimin",
+                "register.terms": "I pranoj",
+                "register.termsService": "kushtet e shërbimit",
+                "register.privacy": "politikat e privatësisë",
+                "register.submit": "Regjistrohuni",
+                
+                // CTA Section
+                "cta.title": "Çfarë po prisni?",
+                "cta.description": "Bëhu partner me BeautyPro AL dhe fillo të rritësh biznesin tuaj sot",
+                "cta.button": "Fillo tani",
+                
+                // Footer
+                "footer.description": "Platforma #1 për bizneset e bukurisë dhe wellness-it në Shqipëri",
+                "footer.platform": "Platforma",
+                "footer.download": "Shkarko aplikacionin",
+                "footer.about": "Rreth nesh",
+                "footer.careers": "Karriera",
+                "footer.blog": "Blog",
+                "footer.business": "Për biznesin",
+                "footer.partners": "Për partnerët",
+                "footer.pricing": "Çmimet",
+                "footer.support": "Mbështetje",
+                "footer.status": "Statusi",
+                "footer.legal": "Ligjore",
+                "footer.privacy": "Politika e privatësisë",
+                "footer.terms": "Kushtet e shërbimit",
+                "footer.usage": "Kushtet e përdorimit",
+                "footer.help": "Ndihmë dhe mbështetje",
+                "footer.copyright": "&copy; 2024 BeautyPro AL. Të gjitha të drejtat e rezervuara."
+            },
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.register": "Register",
+                "nav.profile": "Profile",
+                
+                // Hero Section
+                "hero.title": "Salons and Spas in Albania",
+                "hero.description": "Simple, flexible and useful booking software for your business.",
+                "hero.button": "Get Started",
+                "img.desktop": "Software on desktop",
+                "img.mobile": "Software on mobile",
+                
+                // Stats Section
+                "stats.rating": "Average Rating",
+                "stats.partners": "Partner Businesses",
+                "stats.professionals": "Professionals",
+                "stats.appointments": "Booked Appointments",
+                
+                // Business Types Section
+                "business.title": "A platform with endless possibilities",
+                "business.description": "Everything you need to thrive. BeautyPro AL is equipped with tools to increase sales, manage calendar and keep clients.",
+                "business.hair": "Hair salon",
+                "business.hairTitle": "Beauty Salon",
+                "business.hairDesc": "For all hair care services",
+                "business.barber": "Barber",
+                "business.barberTitle": "Barber",
+                "business.barberDesc": "Men's styling services",
+                "business.nails": "Nails",
+                "business.nailsTitle": "Nails",
+                "business.nailsDesc": "Manicure and pedicure services",
+                "business.spa": "Spa",
+                "business.spaTitle": "Spa and Sauna",
+                "business.spaDesc": "Relaxation and healthy treatments",
+                "business.medspa": "MedSpa",
+                "business.medspaTitle": "MedSpa",
+                "business.medspaDesc": "Professional aesthetic treatments",
+                "business.massage": "Massage",
+                "business.massageTitle": "Massage",
+                "business.massageDesc": "Relaxation and healing therapy",
+                "business.physio": "Fitness",
+                "business.physioTitle": "Physiotherapy",
+                "business.physioDesc": "Recovery physiotherapy services",
+                "business.makeup": "Tattoo",
+                "business.makeupTitle": "Makeup",
+                "business.makeupDesc": "Makeup artist",
+                
+                // Features Section
+                "features.title": "Everything you need to manage your business",
+                "features.description": "BeautyPro AL offers innovative features that bring possibilities, efficiency and experience improvement for your team members and clients.",
+                "features.manage": "Manage",
+                "features.manageDesc": "Manage bookings, sales, clients, locations, team members. Analyze your business with advanced reporting and analytics.",
+                "features.grow": "Grow",
+                "features.growDesc": "Gain new customers through marketing in the beauty market in Albania.",
+                "features.pay": "Get Paid",
+                "features.payDesc": "Get paid fast; reduce no-shows with upfront payments and simplify checkout.",
+                
+                // Testimonials Section
+                "testimonials.title": "Best rated by the industry",
+                "testimonials.description": "Being the most beloved platform in the world doesn't happen by accident. Our commitment to building the best booking software and delivering an exceptional customer experience continues to be recognized in the industry time and again.",
+                "testimonials.anita": "Anita K.",
+                "testimonials.anitaRole": "Founder of \"Elegance\"",
+                "testimonials.anitaQuote": "\"BeautyPro AL is so simple to manage my team. The online booking experience is professional and has helped my business grow by 40% in 6 months!\"",
+                "testimonials.bledar": "Bledar M.",
+                "testimonials.bledarRole": "Owner of \"Barber Shop Elite\"",
+                "testimonials.bledarQuote": "\"My clients love it! The booking platform is very easy to use and the payment system is fast and secure.\"",
+                "testimonials.elsa": "Elsa D.",
+                "testimonials.elsaRole": "Therapist at \"Spa Relax\"",
+                "testimonials.elsaQuote": "\"The scheduling software is very user-friendly and it's free! I have 3 business locations and BeautyPro AL meets all my needs. It's a fantastic product!\"",
+                
+                // Growth Stats Section
+                "growth.title": "Own your business",
+                "growth.description": "At BeautyPro AL, we want to help you grow your business, attract new customers and increase sales. See how businesses are doing on BeautyPro AL",
+                "growth.clients": "More clients",
+                "growth.clientsDesc": "Gain new customers and keep them coming back in the largest beauty market in Albania.",
+                "growth.noshow": "Fewer no-shows",
+                "growth.noshowDesc": "Reduce no-shows and cancellations by taking a deposit or full payment upfront.",
+                "growth.sales": "More sales",
+                "growth.salesDesc": "Generate more sales by selling add-on services when clients book online.",
+                "growth.tips": "More tips",
+                "growth.tipsDesc": "Collect more tips from online bookings.",
+                "growth.retention": "Retention growth",
+                "growth.retentionDesc": "Partners using BeautyPro AL experience higher customer retention.",
+                "growth.roi": "Return on investment",
+                "growth.roiDesc": "Most partners grow with BeautyPro AL.",
+                
+                // Support Section
+                "support.title": "Dedicated to your success",
+                "support.description": "Every business has its own needs, and we've covered it with a wide range of professional services",
+                "support.manager": "Customer Success Manager",
+                "support.managerDesc": "Get dedicated help to maximize your potential on BeautyPro AL",
+                "support.network": "Access to our network",
+                "support.networkDesc": "Use a certified Enterprise account manager to bring your business to life",
+                "support.priority": "Priority 24/7 Support",
+                "support.priorityDesc": "Speak with our customer care team at any time. We are here to help.",
+                "support.migration": "Migration Support",
+                "support.migrationDesc": "Our team can help you bring your data from other platforms",
+                "support.custom": "Customized Solutions",
+                "support.customDesc": "Have something in mind? Just ask us. We'll find it together.",
+                "support.expert": "Expert Consultation",
+                "support.expertDesc": "Get direct access to product experts for guidance on all BeautyPro AL matters",
+                
+                // FAQ Section
+                "faq.title": "Frequently Asked Questions",
+                "faq.q1": "What makes BeautyPro AL the leading platform for beauty and wellness businesses?",
+                "faq.a1": "BeautyPro AL offers high-quality products, professional training and support for staff development, enabling businesses to grow and differentiate themselves in the beauty and wellness market.",
+                "faq.q2": "How can BeautyPro AL help grow my business?",
+                "faq.a2": "The platform provides access to the latest products and trends in beauty and wellness, offers staff training, and professional advice on marketing and management, helping the business attract more customers and increase revenue.",
+                "faq.q3": "Is there any specific cost?",
+                "faq.a3": "There is no mandatory cost to register. Some premium services or treatments may have additional fees, which are clearly shown before use.",
+                "faq.q4": "Is there any minimum commitment or contract?",
+                "faq.a4": "Long-term contracts are not mandatory. Businesses can use the platform as needed and choose the services that best suit them.",
+                "faq.q5": "Does BeautyPro AL support businesses of all sizes?",
+                "faq.a5": "The platform is suitable for small, medium and large businesses. It offers the tools and resources that any type of business can use to improve quality and attract customers.",
+                
+                // Registration Form
+                "register.title": "Register your business",
+                "register.subtitle": "Become part of the largest beauty and wellness platform in Albania",
+                "register.businessName": "Business Name",
+                "register.businessType": "Business Type",
+                "register.selectType": "Select type",
+                "register.salon": "Beauty Salon",
+                "register.barber": "Barber",
+                "register.nails": "Nails",
+                "register.spa": "Spa and Sauna",
+                "register.medspa": "MedSpa",
+                "register.massage": "Massage",
+                "register.physio": "Physiotherapy",
+                "register.makeup": "Makeup",
+                "register.ownerName": "Owner Name",
+                "register.email": "Email",
+                "register.phone": "Phone Number",
+                "register.city": "City",
+                "register.address": "Address",
+                "register.password": "Password",
+                "register.confirmPassword": "Confirm Password",
+                "register.terms": "I accept",
+                "register.termsService": "terms of service",
+                "register.privacy": "privacy policies",
+                "register.submit": "Register",
+                
+                // CTA Section
+                "cta.title": "What are you waiting for?",
+                "cta.description": "Partner with BeautyPro AL and start growing your business today",
+                "cta.button": "Get Started",
+                
+                // Footer
+                "footer.description": "The #1 platform for beauty and wellness businesses in Albania",
+                "footer.platform": "Platform",
+                "footer.download": "Download the app",
+                "footer.about": "About Us",
+                "footer.careers": "Careers",
+                "footer.blog": "Blog",
+                "footer.business": "For Business",
+                "footer.partners": "For Partners",
+                "footer.pricing": "Pricing",
+                "footer.support": "Support",
+                "footer.status": "Status",
+                "footer.legal": "Legal",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Service",
+                "footer.usage": "Terms of Use",
+                "footer.help": "Help & Support",
+                "footer.copyright": "&copy; 2024 BeautyPro AL. All rights reserved."
+            }
+        };
+
+        let currentLang = 'sq'; 
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'sq' ? 'en' : 'sq';
+            document.documentElement.lang = currentLang;
+            document.getElementById('langBtn').textContent = currentLang === 'sq' ? 'EN' : 'SQ';
+            
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+                const key = element.getAttribute('data-i18n-alt');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.alt = translations[currentLang][key];
+                }
+            });
+            document.querySelectorAll('input[placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (key && translations[currentLang] && translations[currentLang][key]) {
+                    element.placeholder = translations[currentLang][key];
+                }
+            });
+            document.querySelectorAll('option').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (key && translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                answer.classList.toggle('hidden');
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+</body>
+</html>

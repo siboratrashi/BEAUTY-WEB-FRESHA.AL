@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresha AL - Book Beauty and Wellness Services in Albania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/sq.js'></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+    (function(){ emailjs.init("PUBLIC_KEY"); })();
+    </script>
+
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="flex items-center space-x-2">
+                        <i class="fas fa-cut text-2xl text-pink-500"></i>
+                        <span class="text-xl font-bold">Fresha AL</span>
+                    </a>
+                    </div>
+                    
+                <div class="hidden md:flex items-center space-x-8">
+
+                <a href="businessregister.html" class="font-medium hover:text-pink-500 transition">
+                    <i class="fa-solid fa-business-time"></i>
+                     Bizneset
+                  </a>
+                  </div>
+                 <div>
+                <a href="login.html" class="font-medium hover:text-pink-500 transition">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                Regjistrohu
+                </a>
+                </div>
+                <div>
+                    <a href="profil.html" class="font-medium hover:text-pink-500 transition">
+                        <i class="fa-solid fa-circle-user"></i>
+                    Profili</a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+                <button onclick="toggleLanguage()" class="text-gray-700 hover:text-pink-500">
+                        <i class="fas fa-globe"></i>
+                        <span id="langBtn">EN</span>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    </div>
+                    </div>
+                    
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden fixed top-16 left-0 w-full bg-white shadow-md z-40 md:hidden">
+            <div class="container mx-auto px-4 py-4">
+                <a href="businessregister.html" class="block py-2 text-gray-700 hover:text-pink-500">Bizneset</a>
+                <a href="login.html" class="block py-2 text-gray-700 hover:text-pink-500">Regjistrohu</a>
+            </div>
+        </div>
+    </header>
+    <!-- Notification -->
+    <div id="notification" class="notification bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="notificationText">Rezervimi u krye me sukses!</span>
+    </div>
+    <!-- Hero Section with Search -->
+      <div id="mobileMenu" class="hidden fixed top-16 left-0 w-full bg-white shadow-md z-40 md:hidden">
+            <div class="container mx-auto px-4 py-4">
+                <a href="businessregister.html" class="block py-2 text-gray-700 hover:text-pink-500">Bizneset</a>
+                <a href="login.html" class="block py-2 text-gray-700 hover:text-pink-500">Regjistrohu</a>
+            </div>
+        </div>
+    </header>
+    <!-- Notification -->
+    <div id="notification" class="notification bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="notificationText">Rezervimi u krye me sukses!</span>
+    </div>
+    <!-- Hero Section with Search -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-gray-900 pt-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-2xl md:text-4xl font-bold mb-6">Book local beauty 
+                <br>and wellness services in Tirana</h1>
+            <br>
+            <div class="search-bar rounded-lg shadow-lg p-4 md:p-6 max-w-4xl mx-auto mb-8 bg-white bg-opacity-90">
+                <div class="md:col-span-2">
+                    <label class="block text-gray-700 text-sm font-medium mb-1">Treatment or venue</label>
+                    <input list="servicesList" type="text" id="searchInput" 
+                        placeholder="All treatments and venues" 
+                        class="w-full px-3 py-2 md:px-4 md:py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-400">
+                <datalist id="servicesList">
+                    <option value="Global Woman Beauty - Rruga Vaso Pasha, Tiranë">
+                    <option value="Barber 919 - Pallatet Agimi, Rruga Brigada e VIII 22, Tiranë">
+                    <option value="Akuarel Nails Hair and Make Up Kerastase Beauty Salon - Rruga Medar Shtylla 33, Tiranë">
+                    <option value="Golden Spa Relax Komuna - Rruga Hasan Alla, Tiranë">
+                    <option value="Henri Gjata Makeup Studio - Kompleksi Delijorgji, Kavaja St, Tiranë">
+                    <option value="Ritual Spa & Hammam - Rruga Bilal Sina Pallati 3, Ap 5, Tiranë">
+                    <option value="LASER WAY CLINIC - Hair Transplant Center - Rruga Ismail Qemali, Tiranë">
+                    <option value="Eden Laser - Rruga Sami Frashëri, Tiranë">
+                    <option value="Ar'Brows Tirana - Anton Lufi, Tiranë">
+                    <option value="New Beauty Clinic - Medicina Chirurgia Estetica Italiana - Bulevardi Gjergj Fishta, Tiranë">
+                    <option value="Eliona Nails Art - Rruga Mihal Duri, Tiranë">
+                    <option value="Tirana Hair Studio - Rruga Sami Frashëri, Tiranë">
+                    <option value="Tirana Nails & Beauty - Bulevardi Bajram Curri, Tiranë">
+                    <option value="Tirana Spa Center - Rruga Papa Gjon Pali II, Tiranë">
+                </datalist>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-1">Location</label>
+                        <input type="text" id="locationInput" placeholder="Tirana" class="w-full px-3 py-2 md:px-4 md:py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-1">Date</label>
+                        <input type="date" id="dateInput" class="w-full px-3 py-2 md:px-4 md:py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 text-black">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-1">Time</label>
+                        <select id="timeInput" class="w-full px-3 py-2 md:px-4 md:py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500 text-black">
+                            <option value="">Any time</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <button onclick="performSearch()" 
+                class="bg-pink-500 text-white hover:bg-pink-600 px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition">
+                Rezervo
+                </button>
+                </div>
+</div>
+    </section>
+
+<br>
+        <section>
+            <div class="text-center mt-8 bg-beige text-beige font-semibold">
+                <p class="text-xl md:text-3xl">15,234 appointments booked today in Tirana</p>
+            </div>
+            
+            <div class="mt-8 text-center text-beige">
+                <p class="mb-4">Get the app</p>
+                <div class="inline-block bg-white p-4 rounded-lg">
+                    <img src="images/qrcode.jpg" alt="QR Code" class="w-24 h-24 md:w-32 md:h-32 mx-auto">
+                    <p class="mt-2 text-gray-700">Scan to download</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <!-- Service Categories -->
+    <section>
+        <div class="container mx-auto px-5">
+            <div class="flex flex-wrap justify-center gap-3 md:gap-5">
+                <button onclick="filterByCategory('all')" class="category-filter active px-4 py-2 md:px-5 md:py-3 rounded-full border border-gray-400 text-gray-700 hover:bg-pink-500 hover:text-white transition">
+                    <i class="fas fa-th mr-2"></i>All Services
+                </button>
+                <button onclick="filterByCategory('hair')" class="category-filter px-3 py-2 md:px-4 md:py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-500 hover:text-white transition">
+                    <i class="fas fa-cut mr-2"></i>Hair
+                </button>
+                <button onclick="filterByCategory('nails')" class="category-filter px-3 py-2 md:px-4 md:py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-500 hover:text-white transition">
+                    <i class="fas fa-hand-sparkles mr-2"></i>Nails
+                </button>
+                <button onclick="filterByCategory('massage')" class="category-filter px-3 py-2 md:px-4 md:py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-500 hover:text-white transition">
+                    <i class="fas fa-spa mr-2"></i>Massage
+                </button>
+                <button onclick="filterByCategory('spa')" class="category-filter px-3 py-2 md:px-4 md:py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-500 hover:text-white transition">
+                    <i class="fas fa-hot-tub mr-2"></i>SPA
+                </button>
+                <button onclick="filterByCategory('beauty')" class="category-filter px-3 py-2 md:px-4 md:py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-pink-500 hover:text-white transition">
+                    <i class="fas fa-star mr-3"></i>Beauty
+                </button>
+            </div>
+        </div>
+    <!--Kategorizimi serviseve-->
+    <!-- Recently Viewed Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold mb-6">Recently viewed</h2>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll flex pb-4 gap-2 md:gap-4">
+                    <!-- Salon Card 1 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="hair" 
+                         data-name="Global Woman Beauty" 
+                         data-location="Rruga Vaso Pasha, Tiranë"
+                         onclick="openReservationModal('global-woman-beauty')">
+                        <img src="images/abi.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Global Woman Beauty</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.4 (325)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Vaso Pasha, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Hair Salon</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 2 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="barber" 
+                         data-name="Barber 919" 
+                         data-location="Pallatet Agimi, Rruga Brigada e VIII 22, Tiranë 1019"
+                         onclick="openReservationModal('barber-919')">
+                        <img src="images/barber919.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Barber 919</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">5.0 (301)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Pallatet Agimi, Rruga Brigada e VIII 22, Tiranë 1019</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Barber</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 3 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="nails" 
+                         data-name="Akuarel Nails Hair and Make Up Kerastase Beauty Salon" 
+                         data-location="Rruga Medar Shtylla 33, Tiranë"
+                         onclick="openReservationModal('akuarel-salon')">
+                        <img src="images/akuarel.jpg" alt="Salon" class="w-full h-40 md:h-48">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Akuarel Nails Hair and Make Up Kerastase Beauty Salon</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.6 (210)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Medar Shtylla 33, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Nails, Hair, Makeup</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 4 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="spa" 
+                         data-name="Golden Spa Relax Komuna" 
+                         data-location="Rruga Hasan Alla, Tiranë 1001"
+                         onclick="openReservationModal('golden-spa-relax')">
+                        <img src="images/golden-spa-relaxKOMUNA.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Golden Spa Relax Komuna</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.8 (64)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Hasan Alla, Tiranë 1001</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Massage and Spa</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 5 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="beauty" 
+                         data-name="Henri Gjata Makeup Studio" 
+                         data-location="Kompleksi Delijorgji, Kavaja St, Tiranë"
+                         onclick="openReservationModal('henri-gjata-studio')">
+                        <img src="images/henrigjata.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Henri Gjata Makeup Studio</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.7 (57)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Kompleksi Delijorgji, Kavaja St, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Make-up artist in Tirana</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 6 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="spa" 
+                         data-name="Ritual Spa & Hammam" 
+                         data-location="Rruga Bilal Sina Pallati 3, Ap 5, Tiranë 1001"
+                         onclick="openReservationModal('ritual-spa-hammam')">
+                        <img src="images/Ritual Spa & Hammam.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Ritual Spa & Hammam</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.9 (465)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Bilal Sina Pallati 3, Ap 5, Tiranë 1001</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Spa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Recommended Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold mb-6">Recommended</h2>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll flex pb-4 gap-2 md:gap-4">
+                    <!-- Salon Card 1 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="hair" 
+                         data-name="LASER WAY CLINIC - Hair Transplant Center" 
+                         data-location="Rruga Ismail Qemali P. Ersi 1, K. 1, Nr. 1, Tiranë"
+                         onclick="openReservationModal('laser-way-clinic')">
+                        <img src="images/hairtransplant.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">LASER WAY CLINIC - Hair Transplant Center</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.9 (355)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Ismail Qemali P. Ersi 1, K. 1, Nr. 1, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Hair transplantation clinic</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 2 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="spa" 
+                         data-name="Eden Laser" 
+                         data-location="Rruga Sami Frashëri, Tiranë"
+                         onclick="openReservationModal('eden-laser')">
+                        <img src="images/eden.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Eden Laser</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.7 (85)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Sami Frashëri, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Health spa</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 3 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="beauty" 
+                         data-name="Ar'Brows Tirana" 
+                         data-location="Anton Lufi, Tiranë 1060"
+                         onclick="openReservationModal('arbrows-tirana')">
+                        <img src="images/arbrows.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Ar'Brows Tirana</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.9 (56)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Anton Lufi, Tiranë 1060</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Eyebrow bar in Tirana</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New to Fresha Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold mb-6">New to Fresha</h2>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll flex pb-4 gap-2 md:gap-4">
+                    <!-- Salon Card 1 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="beauty" 
+                         data-name="New Beauty Clinic - Medicina Chirurgia Estetica Italiana" 
+                         data-location="Kompleksi Delijorgji, Godina Nr.1, Bulevardi Gjergj Fishta, Tiranë 1001"
+                         onclick="openReservationModal('new-beauty-clinic')">
+                        <img src="images/plastic sugrery.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">New Beauty Clinic - Medicina Chirurgia Estetica Italiana</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.6 (10)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Kompleksi Delijorgji, Godina Nr.1, Bulevardi Gjergj Fishta, Tiranë 1001</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Plastic surgery clinic in Tirana</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 2 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="nails" 
+                         data-name="Akuarel Nails Hair and Make Up Kerastase Beauty Salon" 
+                         data-location="Rruga Medar Shtylla 33, Tiranë"
+                         onclick="openReservationModal('akuarel-salon-2')">
+                        <img src="images/akuarel.jpg" alt="Salon" class="w-full h-40 md:h-48">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Akuarel Nails Hair and Make Up Kerastase Beauty Salon</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.6 (210)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Medar Shtylla 33, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Nails, Hair, Makeup</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 3 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="nails" 
+                         data-name="Eliona Nails Art" 
+                         data-location="Rruga Mihal Duri, Tiranë"
+                         onclick="openReservationModal('eliona-nails-art')">
+                        <img src="images/elionanails.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Eliona Nails Art</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.9 (328)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Mihal Duri, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Nails</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trending Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold mb-6">Trending</h2>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll flex pb-4 gap-2 md:gap-4">
+                    <!-- Salon Card 1 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="hair" 
+                         data-name="Tirana Hair Studio" 
+                         data-location="Rruga Sami Frashëri, Tiranë"
+                         onclick="openReservationModal('tirana-hair-studio')">
+                        <img src="images/hairdress12.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Tirana Hair Studio</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.9 (412)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Sami Frashëri, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Hair Salon</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 2 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="nails" 
+                         data-name="Tirana Nails & Beauty" 
+                         data-location="Bulevardi Bajram Curri, Tiranë"
+                         onclick="openReservationModal('tirana-nails-beauty')">
+                        <img src="images/teknikethonjsh.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Tirana Nails & Beauty</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.8 (356)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Bulevardi Bajram Curri, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Nails</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Salon Card 3 -->
+                    <div class="salon-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition" 
+                         data-category="massage" 
+                         data-name="Tirana Spa Center" 
+                         data-location="Rruga Papa Gjon Pali II, Tiranë"
+                         onclick="openReservationModal('tirana-spa-center')">
+                        <img src="images/massagetherapist.jpg" alt="Salon" class="w-full h-40 md:h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-base md:text-lg mb-1">Tirana Spa Center</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400"><i class="fa-solid fa-star"></i></span>
+                                <span class="ml-1 text-gray-600">4.9 (298)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Rruga Papa Gjon Pali II, Tiranë</p>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Massage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Reviews Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold mb-6">Reviews</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/ana.jpg" alt="Reviewer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold">Elena K.</h3>
+                            <p class="text-gray-600 text-sm">Tiranë, Shqipëri</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Eksperiencë e mrekullueshme! Stafi është shumë profesional dhe i përkushtuar. Do të kthehem sigurisht!"</p>
+                </div>
+                
+                <!-- Review Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/mark.jpg" alt="Reviewer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold">Marko R.</h3>
+                            <p class="text-gray-600 text-sm">Tiranë, Shqipëri</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Berberi më i mirë në Tiranë! Sherbimi ishte perfekt dhe atmosfera është shumë e këndëshme."</p>
+                </div>
+                
+                <!-- Review Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="images/elsa.jpg" alt="Reviewer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-bold">Alba M.</h3>
+                            <p class="text-gray-600 text-sm">Tiranë, Shqipëri</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Shërbimi ishte i paharrueshëm! U ndjeva plotësisht e relaksuar dhe freskët. Do ta rekomandoj te miqtë e mi pa dyshim!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Download section-->
+    <section class="py-12 bg-pink-500 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-xl md:text-2xl font-bold mb-4">Shkarko aplikacionin tonë</h2>
+        <p class="mb-6">Rezervo shërbime të bukurisë kudo që të jesh</p>
+        <div class="flex justify-center space-x-4">
+            
+            <!-- App Store Link -->
+            <a href="https://apps.apple.com/al/app/apple-store/id375380948" target="_blank" 
+               class="bg-black text-white px-6 py-3 rounded-lg flex items-center">
+                <i class="fab fa-apple text-2xl mr-2"></i>
+                <div class="text-left">
+                    <div class="text-xs">Shkarko në</div>
+                    <div class="text-sm font-bold">App Store</div>
+                </div>
+            </a>
+            
+            <!-- Google Play Store  -->
+            <a href="https://play.google.com/store/games?hl=en" target="_blank" 
+               class="bg-black text-white px-6 py-3 rounded-lg flex items-center">
+                <i class="fab fa-google-play text-2xl mr-2"></i>
+                <div class="text-left">
+                    <div class="text-xs">Shkarko në</div>
+                    <div class="text-sm font-bold">Google Play</div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+    <!-- Statistics Section -->
+    <section class="py-12 bg-pink-500 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-8">The top-rated destination for beauty and wellness in Albania</h2>
+            <p class="text-center mb-12">One solution, one software. Trusted by the best in the Albanian beauty and wellness industry</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="text-2xl md:text-4xl font-bold">2.5 million+</p>
+                    <p>Appointments booked on Fresha AL</p>
+                </div>
+                <div>
+                    <p class="text-2xl md:text-4xl font-bold">3,200+</p>
+                    <p>partner businesses</p>
+                </div>
+                <div>
+                    <p class="text-2xl md:text-4xl font-bold">12</p>
+                    <p>cities in Albania</p>
+                </div>
+                <div>
+                    <p class="text-2xl md:text-4xl font-bold">8,500+</p>
+                    <p>stylists and professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- MAP TIRANA -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl md:text-2xl font-medium text-center mb-12 text-gray-900" data-translate="locationTitle">
+                <i class="fa-brands fa-canadian-maple-leaf"></i>
+                Vendndodhja</h2>
+            
+            <div class="rounded-lg overflow-hidden shadow-lg max-w-4xl mx-auto">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.7627292258336!2d19.8187!3d41.3275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE5JzM5LjAiTiAxOcKwNDknMDcuMyJF!5e0!3m2!1sen!2s!4v1234567890"
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+     <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Fresha for Business</h3>
+                    <p class="mb-4">Supercharge your business for free with the world's top booking platform for salons and spas.</p>
+                    <a href="businessregister.html" class="text-pink-400 hover:underline">Find out more</a>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Get the app</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Fresha AL</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help and support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">For business</h3>
+                    <ul class="space-y-2">
+                        <li><a href="businessregister.html" class="text-gray-400 hover:text-white">For partners</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Fresha AL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+     <!-- WhatsApp and Messenger Floating Button -->
+    <a href="https://wa.me/355691234567" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition z-40">
+        <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
+    </a>
+    <a href="https://m.me/yourusername" target="_blank" 
+        class="fixed bottom-20 md:bottom-24 right-6 bg-purple-600 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition z-40">
+    <i class="fab fa-facebook-messenger text-xl md:text-2xl"></i>
+    </a>
+    <!--Konfirmimi-->
+    <script>
+    function sendWelcome(name, email){
+        emailjs.send('SERVICE_ID', 'TEMPLATE_ID', {
+        to_name: name,
+        to_email: email
+        }).then(() => {
+        console.log('Email u dërgua!');
+    }).catch((err) => console.error(err));
+    }
+</script>
+
+</body>
+
+    
+</html> 
